@@ -58,20 +58,8 @@ Supported IEC 61131-3 languages include:
 
 The simulation communicates with the PLC through OpenPLC Runtime version 4.0 using OPC UA communication.
 
-Repository:  
-https://github.com/thiagoralves/OpenPLC_v3
-
 Installation Guide:  
-https://autonomylogic.com/docs/openplc-runtime/installation/
-
-### Recommended Configuration
-
-| Setting | Value |
-|---|---|
-| Runtime Version | v4.0 |
-| Communication Protocol | OPC UA |
-| OPC UA Endpoint | opc.tcp://127.0.0.1:4840 |
-| Host Address | 127.0.0.1 |
+[https://autonomylogic.com/docs/openplc-runtime/installation/](https://autonomylogic.com/runtime)
 
 ---
 
