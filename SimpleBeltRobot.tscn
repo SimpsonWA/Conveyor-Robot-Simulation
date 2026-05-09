@@ -1,0 +1,862 @@
+[gd_scene format=3 uid="uid://1o0mvs05q6tb"]
+
+[ext_resource type="PackedScene" uid="uid://dyhvoundu2kqc" path="res://parts/Building.tscn" id="1_fkx33"]
+[ext_resource type="PackedScene" uid="uid://bqlkj4ar8q1ws" path="res://parts/assemblies/BeltConveyorAssembly.tscn" id="3_bjk61"]
+[ext_resource type="PackedScene" uid="uid://dm55h6ap605bw" path="res://parts/BeltConveyor.tscn" id="4_fm4s5"]
+[ext_resource type="PackedScene" uid="uid://i8xb8locnhi5" path="res://parts/assemblies/RollerConveyorAssembly.tscn" id="5_nd633"]
+[ext_resource type="PackedScene" uid="uid://kdpe7o4ec1fa" path="res://parts/DiffuseSensor.tscn" id="6_w44eq"]
+[ext_resource type="PackedScene" uid="uid://5pjmdoyiub35" path="res://parts/Diverter.tscn" id="7_x41ua"]
+[ext_resource type="PackedScene" uid="uid://c1mup2vown0ak" path="res://parts/BladeStop.tscn" id="8_6db66"]
+[ext_resource type="PackedScene" uid="uid://dvpvhht5hn7ww" path="res://parts/assemblies/CurvedBeltConveyorAssembly.tscn" id="10_frlkw"]
+[ext_resource type="PackedScene" uid="uid://dc6o7qkwd60ha" path="res://parts/SixAxisRobot.tscn" id="11_51yo2"]
+[ext_resource type="PackedScene" uid="uid://bl73u0rvt2orv" path="res://parts/Despawner.tscn" id="12_bjk61"]
+[ext_resource type="PackedScene" uid="uid://co2mqmdwpn57w" path="res://parts/BoxSpawner.tscn" id="13_fm4s5"]
+
+[node name="Simulation" type="Node3D" unique_id=486340784]
+
+[node name="Building" parent="." unique_id=183560046 instance=ExtResource("1_fkx33")]
+length_sections = 8
+
+[node name="running_conveyor" parent="." unique_id=197585006 instance=ExtResource("3_bjk61")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1700034, -4.7683716e-07, -0.19593573)
+floor_plane = Plane(0, 1, 0, -2.0000005)
+_guard_state = {
+"LeftSide_0": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.0,
+"pos_x": 0.0
+},
+"RightSide_0": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.0,
+"pos_x": 0.0
+}
+}
+_frame_rail_state = {
+"left": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.0,
+"pos_x": 0.0
+},
+"right": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.0,
+"pos_x": 0.0
+}
+}
+enable_comms = true
+running_tag_group_name = "PLC"
+running_tag_name = "ns=2;i=36"
+_frame_rail_state = {
+"left": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.0,
+"pos_x": 0.0
+},
+"right": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.0,
+"pos_x": 0.0
+}
+}
+
+[node name="Conveyor" parent="." unique_id=648130432 instance=ExtResource("4_fm4s5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1700034, -4.7683716e-07, -0.19593573)
+_frame_rail_state = {
+"left": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.0,
+"pos_x": 0.0
+},
+"right": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.0,
+"pos_x": 0.0
+}
+}
+speed_tag_group_name = "PLC"
+running_tag_group_name = "PLC"
+
+[node name="Out_Conveyor_0" parent="." unique_id=1360212875 instance=ExtResource("5_nd633")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -2.0623283, -4.7683716e-07, 4.6260643)
+local_floor_plane = Plane(0, 1, 0, -1.9999995)
+_guard_state = {
+"LeftSide_0": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 8.12,
+"pos_x": 0.0
+},
+"RightSide_0": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 8.12,
+"pos_x": 0.0
+}
+}
+speed = 1.25
+_frame_rail_state = {
+"left": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 8.12,
+"pos_x": 0.0
+},
+"right": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 8.12,
+"pos_x": 0.0
+}
+}
+size = Vector3(8.12, 0.5, 1.524)
+
+[node name="Out_Conveyor_1" parent="." unique_id=827976984 instance=ExtResource("5_nd633")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 5.5391064, -4.7683716e-07, 2.5660644)
+local_floor_plane = Plane(0, 1, 0, -1.9999995)
+_guard_state = {
+"LeftSide_0": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.0,
+"pos_x": 0.0
+},
+"RightSide_0": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.0,
+"pos_x": 0.0
+}
+}
+speed = 1.25
+_frame_rail_state = {
+"left": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.0,
+"pos_x": 0.0
+},
+"right": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.0,
+"pos_x": 0.0
+}
+}
+
+[node name="C1_Box_Diverter_Sensor" parent="." unique_id=1915908865 instance=ExtResource("6_w44eq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1114383, 0.05989492, -1.6434971)
+enable_comms = true
+tag_group_name = "PLC"
+tag_name = "ns=2;i=11"
+
+[node name="C1_Box_Diverter" parent="." unique_id=1865443018 instance=ExtResource("7_x41ua")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 5.539, -0.2, -2.071)
+divert_distance = 1.0
+enable_comms = true
+tag_group_name = "PLC"
+tag_name = "ns=2;i=12"
+
+[node name="Conveyor2" parent="." unique_id=1369350340 instance=ExtResource("4_fm4s5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8299966, -4.7683716e-07, -0.19593573)
+_frame_rail_state = {
+"left": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.0,
+"pos_x": 0.0
+},
+"right": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.0,
+"pos_x": 0.0
+}
+}
+speed_tag_group_name = "PLC"
+running_tag_group_name = "PLC"
+
+[node name="BeltConveyorAssembly2" parent="." unique_id=758692754 instance=ExtResource("3_bjk61")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8299966, -4.7683716e-07, -0.19593573)
+floor_plane = Plane(0, 1, 0, -2.000001)
+local_floor_plane = Plane(0, 1, 0, -2.0000005)
+_guard_state = {
+"LeftSide_0": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.0,
+"pos_x": 0.0
+},
+"RightSide_0": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.0,
+"pos_x": 0.0
+}
+}
+_frame_rail_state = {
+"left": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.0,
+"pos_x": 0.0
+},
+"right": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.0,
+"pos_x": 0.0
+}
+}
+_frame_rail_state = {
+"left": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.0,
+"pos_x": 0.0
+},
+"right": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.0,
+"pos_x": 0.0
+}
+}
+
+[node name="C0_Box_Diverter" parent="." unique_id=596811889 instance=ExtResource("7_x41ua")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -2.062, -0.2, -2.071)
+divert_distance = 1.0
+enable_comms = true
+tag_group_name = "PLC"
+tag_name = "ns=2;i=2"
+
+[node name="C0_Box_Diverter_Sensor" parent="." unique_id=400409131 instance=ExtResource("6_w44eq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.915, 0.06, -1.448)
+enable_comms = true
+tag_group_name = "PLC"
+tag_name = "ns=2;i=1"
+
+[node name="C1_Backfill_Stopper" parent="." unique_id=1831714670 instance=ExtResource("8_6db66")]
+transform = Transform3D(0, 0, -0.44799998, 0, 0.99999803, 0, 0.99999803, 0, 0, 5.5391064, -0.2700005, 5.4880643)
+enable_comms = true
+tag_group_name = "PLC"
+tag_name = "ns=2;i=13"
+
+[node name="Out_Conveyor_1_Extended" parent="." unique_id=464552494 instance=ExtResource("5_nd633")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 5.5391064, -4.7683716e-07, 6.6258507)
+local_floor_plane = Plane(0, 1, 0, -1.9999995)
+_guard_state = {
+"LeftSide_0": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.1195726,
+"pos_x": 0.0
+},
+"RightSide_0": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.1195726,
+"pos_x": 0.0
+}
+}
+speed = 1.25
+_frame_rail_state = {
+"left": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.1195726,
+"pos_x": 0.0
+},
+"right": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.1195726,
+"pos_x": 0.0
+}
+}
+size = Vector3(4.1195726, 0.5, 1.524)
+
+[node name="C1_Backfeed_Sensor" parent="." unique_id=1900776824 instance=ExtResource("6_w44eq")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.2230268, -0.07347906, 5.3775797)
+max_range = 1.0
+enable_comms = true
+tag_group_name = "PLC"
+tag_name = "ns=2;i=15"
+
+[node name="C1_Load_Sensor" parent="." unique_id=2059992414 instance=ExtResource("6_w44eq")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.3691473, 0.035811126, 7.895856)
+max_range = 1.0
+enable_comms = true
+tag_group_name = "PLC"
+tag_name = "ns=2;i=17"
+
+[node name="C1_Preload_Sensor" parent="." unique_id=527093109 instance=ExtResource("6_w44eq")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.347409, 0.05214405, 6.703062)
+max_range = 1.0
+enable_comms = true
+tag_group_name = "PLC"
+tag_name = "ns=2;i=16"
+
+[node name="C1_End_Stopper" parent="." unique_id=1153581362 instance=ExtResource("8_6db66")]
+transform = Transform3D(0, 0, -0.448, 0, 1, 0, 1, 0, 0, 5.5391064, -0.2700005, 8.128064)
+active = true
+tag_group_name = "PLC"
+
+[node name="C1_Queue_Stopper" parent="." unique_id=143581763 instance=ExtResource("8_6db66")]
+transform = Transform3D(0, 0, -0.448, 0, 1, 0, 1, 0, 0, 5.5391064, -0.2700005, 6.8080645)
+active = true
+enable_comms = true
+tag_group_name = "PLC"
+tag_name = "ns=2;i=14"
+
+[node name="BeltConveyorAssembly3" parent="." unique_id=412308303 instance=ExtResource("3_bjk61")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.875619, -4.7683716e-07, -0.19593573)
+floor_plane = Plane(0, 1, 0, -2.0000005)
+_guard_state = {
+"LeftSide_0": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 3.908754,
+"pos_x": 0.0
+},
+"RightSide_0": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 3.908754,
+"pos_x": 0.0
+}
+}
+_frame_rail_state = {
+"left": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 3.908754,
+"pos_x": 0.0
+},
+"right": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 3.908754,
+"pos_x": 0.0
+}
+}
+_frame_rail_state = {
+"left": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 3.908754,
+"pos_x": 0.0
+},
+"right": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 3.908754,
+"pos_x": 0.0
+}
+}
+size = Vector3(3.908754, 0.5, 1.524)
+
+[node name="BeltConveyorAssembly4" parent="." unique_id=199618413 instance=ExtResource("3_bjk61")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.170004, -4.7683716e-07, -0.19593573)
+floor_plane = Plane(0, 1, 0, -2.0000005)
+_guard_state = {
+"LeftSide_0": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.0,
+"pos_x": 0.0
+},
+"RightSide_0": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.0,
+"pos_x": 0.0
+}
+}
+_frame_rail_state = {
+"left": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.0,
+"pos_x": 0.0
+},
+"right": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.0,
+"pos_x": 0.0
+}
+}
+_frame_rail_state = {
+"left": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.0,
+"pos_x": 0.0
+},
+"right": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.0,
+"pos_x": 0.0
+}
+}
+
+[node name="CurvedBeltConveyorAssembly" parent="." unique_id=250519520 instance=ExtResource("10_frlkw")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12.079996, -4.7683716e-07, -1.4579357)
+local_floor_plane = Plane(0, 1, 0, -1.9999995)
+reverse_belt = true
+metadata/_snap_transform = Callable()
+
+[node name="BeltConveyorAssembly5" parent="." unique_id=663207036 instance=ExtResource("3_bjk61")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 13.341996, -4.7683716e-07, -3.7079358)
+local_floor_plane = Plane(0, 1, 0, -1.9999995)
+_guard_state = {
+"LeftSide_0": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": false,
+"front_boundary_tracking": false,
+"length": 3.2279997,
+"pos_x": -0.38600016
+},
+"RightSide_0": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.0,
+"pos_x": 0.0
+}
+}
+_frame_rail_state = {
+"left": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.0,
+"pos_x": 0.0
+},
+"right": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.0,
+"pos_x": 0.0
+}
+}
+_frame_rail_state = {
+"left": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.0,
+"pos_x": 0.0
+},
+"right": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.0,
+"pos_x": 0.0
+}
+}
+
+[node name="BeltConveyorAssembly6" parent="." unique_id=1204034290 instance=ExtResource("3_bjk61")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 13.341996, -4.7683716e-07, -7.707936)
+floor_plane = Plane(0, 1, 0, -2.000001)
+local_floor_plane = Plane(0, 1, 0, -2.0000005)
+_guard_state = {
+"LeftSide_0": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.0,
+"pos_x": 0.0
+},
+"RightSide_0": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.0,
+"pos_x": 0.0
+}
+}
+_frame_rail_state = {
+"left": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.0,
+"pos_x": 0.0
+},
+"right": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.0,
+"pos_x": 0.0
+}
+}
+_frame_rail_state = {
+"left": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.0,
+"pos_x": 0.0
+},
+"right": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 4.0,
+"pos_x": 0.0
+}
+}
+
+[node name="CurvedBeltConveyorAssembly2" parent="." unique_id=1910781746 instance=ExtResource("10_frlkw")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 12.079996, -4.7683716e-07, -9.957935)
+local_floor_plane = Plane(0, 1, 0, -1.9999995)
+reverse_belt = true
+
+[node name="BeltConveyorAssembly7" parent="." unique_id=951713404 instance=ExtResource("3_bjk61")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.16565228, -4.7683716e-07, -11.219934)
+floor_plane = Plane(0, 1, 0, -2.0000005)
+_guard_state = {
+"LeftSide_0": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 23.991297,
+"pos_x": 0.0
+},
+"RightSide_0": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 23.991297,
+"pos_x": 0.0
+}
+}
+_frame_rail_state = {
+"left": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 23.991297,
+"pos_x": 0.0
+},
+"right": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 23.991297,
+"pos_x": 0.0
+}
+}
+_frame_rail_state = {
+"left": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 23.991297,
+"pos_x": 0.0
+},
+"right": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 23.991297,
+"pos_x": 0.0
+}
+}
+size = Vector3(23.991297, 0.5, 1.524)
+
+[node name="CurvedBeltConveyorAssembly3" parent="." unique_id=1288265649 instance=ExtResource("10_frlkw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.420004, -4.7683716e-07, -1.4579357)
+floor_plane = Plane(0, 1, 0, -2.0000005)
+reverse_belt = true
+
+[node name="BeltConveyorAssembly8" parent="." unique_id=125365801 instance=ExtResource("3_bjk61")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -13.682004, -4.7683716e-07, -5.700698)
+local_floor_plane = Plane(0, 1, 0, -1.9999995)
+_guard_state = {
+"LeftSide_0": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 8.056438,
+"pos_x": 0.0
+},
+"RightSide_0": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 8.056438,
+"pos_x": 0.0
+}
+}
+_frame_rail_state = {
+"left": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 8.056438,
+"pos_x": 0.0
+},
+"right": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 8.056438,
+"pos_x": 0.0
+}
+}
+_frame_rail_state = {
+"left": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 8.056438,
+"pos_x": 0.0
+},
+"right": {
+"back_anchored": true,
+"back_boundary_tracking": false,
+"front_anchored": true,
+"front_boundary_tracking": false,
+"length": 8.056438,
+"pos_x": 0.0
+}
+}
+size = Vector3(8.056438, 0.5, 1.524)
+
+[node name="CurvedBeltConveyorAssembly4" parent="." unique_id=1219729608 instance=ExtResource("10_frlkw")]
+transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, -12.411301, -4.7683716e-07, -9.957933)
+floor_plane = Plane(0, 1, 0, -1.999999)
+local_floor_plane = Plane(0, 1, 0, -1.9999986)
+reverse_belt = true
+
+[node name="C1_Robot" parent="." unique_id=508298280 instance=ExtResource("11_51yo2")]
+transform = Transform3D(1.35, 0, 0, 0, 1.35, 0, 0, 0, 1.35, 7.317292, -2, 7.6377945)
+home_position = Array[float]([0.0, -45.0, 90.0, 0.0, 75.0, 0.0])
+waypoints = {
+"1: Pick": Array[float]([0.0, 0.8600718807214842, 75.07565937498877, 0.0, 463.3564015819082, 0.0]),
+"2: PostPick": Array[float]([0.0, 0.8600718807214847, 27.549300618418737, 0.0, 463.3564015819082, 0.0]),
+"3: PrePlace": Array[float]([-180.02818048051572, 0.8600718807214847, 27.549300618418727, 0.0, 463.3564015819082, 0.0]),
+"4: Place": Array[float]([-180.02818048051572, 31.570639029810497, 37.05050550485672, 0.0, 463.3564015819082, 0.0])
+}
+motion_speed = 130.0
+selected_waypoint = "4: Place"
+j1_angle = -180.02818048051572
+j2_angle = 31.570639029810508
+j3_angle = 37.050505504856716
+j5_angle = 463.3564015819082
+enable_comms = true
+tag_group_name = "PLC"
+command_tag = "ns=2;i=23"
+execute_tag = "ns=2;i=24"
+done_tag = "ns=2;i=25"
+vacuum_tag = "ns=2;i=26"
+
+[node name="C0_Robot" parent="." unique_id=1962339588 instance=ExtResource("11_51yo2")]
+transform = Transform3D(-1.35, 0, -1.1802075e-07, 0, 1.35, 0, 1.1802075e-07, 0, -1.35, -3.84, -2, 7.638)
+home_position = Array[float]([0.0, -45.0, 90.0, 0.0, 90.0, 0.0])
+waypoints = {
+"1: Pick": Array[float]([0.0, 0.8600718807214842, 75.07565937498877, 0.0, 463.3564015819082, 0.0]),
+"2: PostPick": Array[float]([0.0, 0.8600718807214847, 27.549300618418737, 0.0, 463.3564015819082, 0.0]),
+"3: PrePlace": Array[float]([-180.02818048051572, 0.8600718807214847, 27.549300618418727, 0.0, 463.3564015819082, 0.0]),
+"4: Place": Array[float]([-180.02818048051572, 31.570639029810497, 37.05050550485672, 0.0, 463.3564015819082, 0.0])
+}
+motion_speed = 120.0
+selected_waypoint = "2: PostPick"
+j2_angle = 0.8600718807214776
+j3_angle = 52.93433824654086
+j5_angle = 103.35640158190814
+enable_comms = true
+tag_group_name = "PLC"
+command_tag = "ns=2;i=19"
+execute_tag = "ns=2;i=20"
+done_tag = "ns=2;i=21"
+vacuum_tag = "ns=2;i=22"
+
+[node name="Despawner" parent="." unique_id=1495546615 instance=ExtResource("12_bjk61")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 9.974579, -1.5, 7.7069597)
+
+[node name="Despawner2" parent="." unique_id=341813337 instance=ExtResource("12_bjk61")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 13.389075, 0.50972414, -9.429457)
+
+[node name="BoxSpawner" parent="." unique_id=1009593353 node_paths=PackedStringArray("conveyor") instance=ExtResource("13_fm4s5")]
+transform = Transform3D(1, 2.30012e-09, -9.31322e-10, -2.30012e-09, 1, 8.84756e-09, 9.31322e-10, -8.84756e-09, 1, -7.379383, 0.5215068, 0.03221202)
+boxes_per_minute = 25
+conveyor = NodePath("../running_conveyor")
+
+[node name="BladeStop" parent="." unique_id=321292431 instance=ExtResource("8_6db66")]
+transform = Transform3D(0, 0, -0.448, 0, 1, 0, 1, 0, 0, -2.0623283, -0.2700005, 8.088064)
+active = true
+tag_group_name = "PLC"
+
+[node name="C0_Queue_Stopper" parent="." unique_id=62712907 instance=ExtResource("8_6db66")]
+transform = Transform3D(0, 0, -0.448, 0, 1, 0, 1, 0, 0, -2.0623283, -0.2700005, 6.7680645)
+active = true
+enable_comms = true
+tag_group_name = "PLC"
+tag_name = "ns=2;i=4"
+
+[node name="C0_Load_Sensor" parent="." unique_id=2032003692 instance=ExtResource("6_w44eq")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.7400725, 0.25835133, 7.843979)
+enable_comms = true
+tag_group_name = "PLC"
+tag_name = "ns=2;i=7"
+
+[node name="C0_BackFill_Stopper" parent="." unique_id=780637827 instance=ExtResource("8_6db66")]
+transform = Transform3D(0, 0, -0.448, 0, 1, 0, 1, 0, 0, -2.0623283, -0.2700005, 5.1180644)
+active = true
+enable_comms = true
+tag_group_name = "PLC"
+tag_name = "ns=2;i=3"
+
+[node name="C0_Queue_Sensor" parent="." unique_id=917514993 instance=ExtResource("6_w44eq")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.71378475, 0.28298235, 6.450928)
+enable_comms = true
+tag_group_name = "PLC"
+tag_name = "ns=2;i=6"
+
+[node name="C0_Backfeed_Sensor" parent="." unique_id=270604209 instance=ExtResource("6_w44eq")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.8688245, 0.057567596, 4.785814)
+max_range = 1.0
+enable_comms = true
+tag_group_name = "PLC"
+tag_name = "ns=2;i=5"
+
+[node name="Missed_Box_Sensor" parent="." unique_id=1842332020 instance=ExtResource("6_w44eq")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12.417492, 0.18039465, -6.725459)
+enable_comms = true
+tag_group_name = "PLC"
+tag_name = "ns=2;i=18"
+
+[node name="Despawner3" parent="." unique_id=174360894 instance=ExtResource("12_bjk61")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, -6.1912246, -1.500001, 7.5666656)
+
+[node name="C0_Feed_Stopper" parent="." unique_id=1759748878 instance=ExtResource("8_6db66")]
+transform = Transform3D(0, 0, -0.448, 0, 1, 0, 1, 0, 0, -2.0623283, -0.2700005, 3.1380644)
+active = true
+enable_comms = true
+tag_group_name = "PLC"
+tag_name = "ns=2;i=9"
+
+[node name="C1_Feed_Stopper" parent="." unique_id=1408630595 instance=ExtResource("8_6db66")]
+transform = Transform3D(0, 0, -0.448, 0, 1, 0, 1, 0, 0, 5.5391064, -0.2700005, 3.4680643)
+enable_comms = true
+tag_group_name = "PLC"
+tag_name = "ns=2;i=10"
