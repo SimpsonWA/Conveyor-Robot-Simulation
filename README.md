@@ -167,13 +167,129 @@ You must start from the provided **default project**, not directly from the `.ts
 
 ---
 
-# 2. OpenPLC Project Setup
+# 2. OpenPLC Setup
 
-The PLC logic is provided as a zipped OpenPLC project.
+The OpenPLC setup is intentionally minimal. The provided OpenPLC zip already contains all required configuration, including the OPC UA server setup.
 
-## Requirements
-- OpenPLC Editor
-- OpenPLC Runtime v4.0
+You only need to run the runtime and connect the editor to it.
 
 ---
+
+## Requirements
+
+- OpenPLC Editor
+- OpenPLC Runtime v4.0 (`runtime.exe`)
+- Provided OpenPLC project `.zip`
+
+Download:
+https://openplcproject.com  
+https://autonomylogic.com/downloads/
+
+---
+
+## Step 1 — Start OpenPLC Runtime
+
+1. Locate the OpenPLC Runtime folder from the download
+2. Run:
+   ```
+   runtime.exe
+   ```
+3. Wait until the runtime is fully started
+4. Leave this running in the background
+
+---
+
+## Step 2 — Import OpenPLC Project
+
+1. Extract the provided project:
+   ```
+   OpenPLC_Project.zip
+   ```
+
+2. Open OpenPLC Editor
+
+3. Load the project:
+   ```
+   File → Open Project
+   ```
+
+4. Select the extracted project folder
+
+---
+
+## Step 3 — Connect Editor to Runtime
+
+1. In OpenPLC Editor, go to:
+   ```
+   Configuration → Device
+   ```
+
+2. Set the device type to:
+   ```
+   OpenPLC Runtime v4
+   ```
+
+3. Set connection address:
+   ```
+   localhost (127.0.0.1)
+   ```
+
+4. Click **Connect**
+
+5. Confirm the editor shows a successful connection to the runtime
+
+---
+
+## Step 4 — Deploy PLC Program
+
+1. Compile the project:
+   ```
+   Build → Compile
+   ```
+
+2. Generate PLC code
+
+3. Click:
+   ```
+   Download / Upload to Runtime
+   ```
+
+4. Start the PLC program from the runtime interface
+
+---
+
+# Notes on OPC UA Communication
+
+No manual OPC UA configuration is required.
+
+The provided OpenPLC project already includes:
+- OPC UA server configuration
+- Tag exposure setup
+- Runtime communication bindings
+
+Once the runtime is running, OPC UA is automatically available at:
+
+```
+opc.tcp://127.0.0.1:4840
+```
+
+---
+
+# Summary Flow
+
+```text id="plc_flow"
+Extract Project ZIP
+        ↓
+Run runtime.exe (OpenPLC Runtime v4)
+        ↓
+Open OpenPLC Editor
+        ↓
+Set Device → OpenPLC Runtime v4
+        ↓
+Connect to localhost (127.0.0.1)
+        ↓
+Compile + Upload PLC Program
+        ↓
+Runtime exposes OPC UA automatically
+```
 
